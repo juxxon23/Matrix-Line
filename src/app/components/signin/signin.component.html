@@ -1,1 +1,26 @@
-<p>signin works!</p>
+<app-header></app-header>
+<div formGroupName="login" class="container-sm border border-dark text-center my-5"> 
+	<h3 class="mt-2">Register Client</h3>
+	<label>
+		Name<br>
+		<input type="text" formControlName="nome">
+	</label><br>
+	<label>
+		Last Name<br>
+		<input type="text" formControlName="lastName">
+    </label><br>
+    <label>
+		Number Id<br>
+		<input type="text" formControlName="id">
+	</label><br>
+    <label>
+		Number phone<br>
+		<input type="text" formControlName="numberPhone">
+    </label><br>
+    <label>
+		date of birth<br>
+		<input type="datetime-local" formControlName="date">
+	</label><br>
+	<button class="btn btn-success border border-dark mb-2">Sign in</button>
+</div>
+
