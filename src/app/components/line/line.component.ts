@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-line',
@@ -6,8 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./line.component.css']
 })
 export class LineComponent implements OnInit {
+  signin = this.fb.group({
+	nome: [''],
+    lastName: [''],
+    id: [''],
+    numberPhone: [''],
+    date: ['']
+	});
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
