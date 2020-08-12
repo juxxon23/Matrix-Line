@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LiteOptionsComponent } from './lite-options.component';
+import { LineOptionsComponent } from './line-options.component';
 
-describe('LiteOptionsComponent', () => {
-  let component: LiteOptionsComponent;
-  let fixture: ComponentFixture<LiteOptionsComponent>;
+describe('LineOptionsComponent', () => {
+  let component: LineOptionsComponent;
+  let fixture: ComponentFixture<LineOptionsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LiteOptionsComponent ]
+      declarations: [ LineOptionsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LiteOptionsComponent);
+    fixture = TestBed.createComponent(LineOptionsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

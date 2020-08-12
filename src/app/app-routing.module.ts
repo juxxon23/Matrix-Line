@@ -6,7 +6,7 @@ const routes: Routes = [
 	{ path: 'line', loadChildren: () => import('./components/line/line.module').then(m => m.LineModule) }, 
 	{ path: 'login', loadChildren: () => import('./components/login/login.module').then(m => m.LoginModule) }, 
 	{ path: 'signin', loadChildren: () => import('./components/signin/signin.module').then(m => m.SigninModule) },
-	{ path: 'liteOptions', loadChildren: () => import('./lite-options/lite-options.module').then(m => m.LiteOptionsModule) }
+	{ path: 'lineOptions', loadChildren: () => import('./components/line-options/line-options.module').then(m => m.LineOptionsModule) },
 ];
 
 @NgModule({

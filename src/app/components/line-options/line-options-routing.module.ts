@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LiteOptionsComponent } from './lite-options.component';
+import { LineOptionsComponent } from './line-options.component';
 
-const routes: Routes = [{ path: '', component: LiteOptionsComponent }];
+const routes: Routes = [{ path: '', component: LineOptionsComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class LiteOptionsRoutingModule { }
+export class LineOptionsRoutingModule { }
