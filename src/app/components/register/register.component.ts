@@ -7,7 +7,7 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
- 	line = this.fb.group({
+ 	register = this.fb.group({
     	documento: [''],
     	numberLine: [''],
 		state: [''],
