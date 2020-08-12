@@ -1,4 +1,4 @@
-<div formGroupName="signin" class="container-sm border border-dark text-center my-5"> 
+<div formGroupName="line" class="container-sm border border-dark text-center mt-2 mb-3"> 
 	<h3 class="mt-2">Register Phone Line</h3>
 	<label>
 		Nombre<br>
@@ -26,11 +26,10 @@
 			<div class="input-group-prepend">
 			  <label class="input-group-text" for="inputGroupSelect01">Opciones</label>
 			</div>
-			<select class="custom-select" id="inputGroupSelect01">
+			<select class="custom-select" id="inputGroupSelect01" formControlName="state">
 			  <option selected>Selecciona...</option>
 			  <option value="1">Activa</option>
 			  <option value="2">Suspendida</option>
-
 			</select>
 		  </div>
 	</label><br>
@@ -44,14 +43,13 @@
 			<div class="input-group-prepend">
 			  <label class="input-group-text" for="inputGroupSelect01">Opciones</label>
 			</div>
-			<select class="custom-select" id="inputGroupSelect01">
+			<select class="custom-select" id="inputGroupSelect01" formControlName="legalState">
 			  <option selected>Selecciona...</option>
 			  <option value="1">Reportado</option>
 			  <option value="2">No Reportado</option>
-
 			</select>
 		  </div>
     </label><br>
-	<button class="btn btn-success border border-dark mb-2">Sign in</button>
+	<button class="btn btn-success border border-dark mb-2">Finish</button>
 </div>
 

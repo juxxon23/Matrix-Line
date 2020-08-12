@@ -1,0 +1,10 @@
+.control {
+	width: 40%;
+}
+img {
+	width: 100%;
+	max-height: 500px;
+	border: 3px solid black;
+	border-radius: 5px;
+
+}

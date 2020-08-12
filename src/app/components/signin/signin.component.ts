@@ -7,13 +7,14 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent {
-  signin = this.fb.group({
+	
+	signin = this.fb.group({
 		nome: [''],
-    lastName: [''],
-    id: [''],
-    numberPhone: [''],
-    date: ['']
-	});
-  constructor(private fb: FormBuilder) { }
+    	lastName: [''],
+    	id: [''],
+    	numberPhone: [''],
+    });
+  
+  	constructor(private fb: FormBuilder) { }
 
 }

@@ -7,12 +7,16 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./line.component.css']
 })
 export class LineComponent implements OnInit {
-  signin = this.fb.group({
-	nome: [''],
-    lastName: [''],
-    id: [''],
-    numberPhone: [''],
-    date: ['']
+  
+  	line = this.fb.group({
+		nome: [''],
+    	lastName: [''],
+    	id: [''],
+    	numberPhone: [''],
+    	date: [''],
+		state: [''],
+		namePhone: [''],
+		legalState: ['']
 	});
 
   constructor(private fb: FormBuilder) { }
