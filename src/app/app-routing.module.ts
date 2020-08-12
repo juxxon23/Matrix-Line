@@ -8,6 +8,8 @@ const routes: Routes = [
 	{ path: 'signin', loadChildren: () => import('./components/signin/signin.module').then(m => m.SigninModule) },
 	{ path: 'lineOptions', loadChildren: () => import('./components/line-options/line-options.module').then(m => m.LineOptionsModule) },
 	{ path: 'facturacion', loadChildren: () => import('./components/facturacion/facturacion.module').then(m => m.FacturacionModule) },
+	{ path: 'registerClient', loadChildren: () => import('./components/register-client/register-client.module').then(m => m.RegisterClientModule) },
+	{ path: 'actualizarEstado', loadChildren: () => import('./actualizar-estado/actualizar-estado.module').then(m => m.ActualizarEstadoModule) },
 ];
 
 @NgModule({
