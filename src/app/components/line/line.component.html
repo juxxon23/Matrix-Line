@@ -1,5 +1,5 @@
-<div formGroupName="login" class="container-sm border border-dark text-center my-5"> 
-	<h3 class="mt-2">Sign in</h3>
+<div formGroupName="signin" class="container-sm border border-dark text-center my-5"> 
+	<h3 class="mt-2">Register Phone Line</h3>
 	<label>
 		Nombre<br>
 		<input type="text" formControlName="nome">
@@ -13,13 +13,45 @@
 		<input type="text" formControlName="id">
 	</label><br>
     <label>
-		Teléfono<br>
+		Numero De La Nueva Linea<br>
 		<input type="text" formControlName="numberPhone">
     </label><br>
     <label>
-		Fecha de nacimiento<br>
+		Fecha De Nacimiento<br>
 		<input type="datetime-local" formControlName="date">
 	</label><br>
+	<label>
+		Estado De La Linea<br>
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+			  <label class="input-group-text" for="inputGroupSelect01">Opciones</label>
+			</div>
+			<select class="custom-select" id="inputGroupSelect01">
+			  <option selected>Selecciona...</option>
+			  <option value="1">Activa</option>
+			  <option value="2">Suspendida</option>
+
+			</select>
+		  </div>
+	</label><br>
+	<label>
+		Nombre Del Telefono<br>
+		<input type="text" formControlName="namePhone">
+	</label><br>
+	<label>
+		Estado Legal<br>
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+			  <label class="input-group-text" for="inputGroupSelect01">Opciones</label>
+			</div>
+			<select class="custom-select" id="inputGroupSelect01">
+			  <option selected>Selecciona...</option>
+			  <option value="1">Reportado</option>
+			  <option value="2">No Reportado</option>
+
+			</select>
+		  </div>
+    </label><br>
 	<button class="btn btn-success border border-dark mb-2">Sign in</button>
 </div>
 
