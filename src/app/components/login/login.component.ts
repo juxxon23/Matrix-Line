@@ -8,7 +8,7 @@ import { FormBuilder } from '@angular/forms';
 })
 export class LoginComponent {
 	login = this.fb.group({
-		user: [''],
+		document: [''],
 		pass: ['']
 	});
 
