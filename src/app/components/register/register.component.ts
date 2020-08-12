@@ -2,17 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
-  selector: 'app-line',
-  templateUrl: './line.component.html',
-  styleUrls: ['./line.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class LineComponent implements OnInit {
-  
-  	line = this.fb.group({
-		user: [''],
+export class RegisterComponent implements OnInit {
+ 	line = this.fb.group({
     	documento: [''],
     	numberLine: [''],
-    	date: [''],
 		state: [''],
 		namePhone: [''],
 		legalState: ['']

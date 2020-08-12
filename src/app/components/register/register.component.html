@@ -1,9 +1,5 @@
-<div formGroupName="line" class="container-sm border border-dark text-center mt-2 mb-3"> 
+<div formGroupName="register" class="container-sm border border-dark text-center mt-2 mb-3"> 
 	<h3 class="mt-2">Register Phone Line</h3>
-	<label>
-		Nombre<br>
-		<input type="text" formControlName="user">
-    </label><br>
 	<label>
 		Documento<br>
 		<input type="text" formControlName="documento">
@@ -12,10 +8,6 @@
 		N. Linea Telefonica<br>
 		<input type="text" formControlName="numberLine">
     </label><br>
-    <label>
-		Fecha De Nacimiento<br>
-		<input type="datetime-local" formControlName="date">
-	</label><br>
 	<label>
 		Estado De La Linea<br>
 		<div class="input-group mb-3">
@@ -27,7 +19,7 @@
 			  <option value="1">Activa</option>
 			  <option value="2">Suspendida</option>
 			</select>
-		  </div>
+		</div>
 	</label><br>
 	<label>
 		Nombre Del Telefono<br>
@@ -44,7 +36,7 @@
 			  <option value="1">Reportado</option>
 			  <option value="2">No Reportado</option>
 			</select>
-		  </div>
+		</div>
     </label><br>
     <button class="btn btn-success border border-dark mb-2" routerLink="/">Registrar linea Postpago</button>
 </div>
