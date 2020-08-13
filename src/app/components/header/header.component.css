@@ -1,3 +1,22 @@
-h4{
+.nav{
+    display: flex;
+    justify-content: space-evenly;
+}
+.line{
+    display: flex;
+    position: fixed;
+    left: 0;
+}
+.inicio{
+    display: flex;
+}
+
+.cliente{
+    display: flex;
+    position: fixed;
+    right: 0;
+}
+
+a{
     color: white;
 }
