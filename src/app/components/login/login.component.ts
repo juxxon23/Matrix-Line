@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -8,9 +9,11 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginComponent {
   	
-	constructor(private fb: FormBuilder) { 
+	constructor(private fb: FormBuilder, private httpClient: HttpClient) { 
 	
 	}
+	
+	url: string = 'http://127.0.0.1:5000/';
 
 	login_client = this.fb.group({
 		document: ['', Validators.required],
