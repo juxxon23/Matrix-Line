@@ -1,20 +1,31 @@
-<div class="container-sm border border-dark text-center my-5"> 
+<div class="container-sm border border-dark text-center my-5">
 	<h3 class="my-3">Matrix Line</h3>
 	<hr>
 	<div class="mt-2">
 		<label for="documento">Documento</label>
 	</div>
 	<div class="mb-2">
+		<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-earmark-text" fill="currentColor"
+			xmlns="http://www.w3.org/2000/svg">
+			<path
+				d="M4 1h5v1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6h1v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2z" />
+			<path d="M9 4.5V1l5 5h-3.5A1.5 1.5 0 0 1 9 4.5z" />
+			<path fill-rule="evenodd"
+				d="M5 11.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
+		</svg>
 		<input type="text" id="documento">
-    </div>
+	</div>
 	<button class="btn btn-success border border-dark mb-2">Search</button>
-    <p>¿No está registrado? <a class="link" routerLink="/registroUsuario">Registrar usuario</a></p>
+	<p>¿No está registrado? <a class="link" routerLink="/registroUsuario">Registrar usuario</a></p>
 </div>
-<div class="container-sm border border-dark text-center mt-2 mb-5"> 
+<div class="container-sm border border-dark text-center mt-2 mb-5">
 	<h3 class="my-3">¿Qué Desea Realizar?</h3>
-    <button type="button" class="btn btn-outline-success" routerLink="/register">Registrar Linea Telefonica Postpago</button>
+	<button type="button" class="btn btn-outline-success" routerLink="/register">Registrar Linea Telefonica
+		Postpago</button>
 	<br>
-    <button type="button" class="btn btn-outline-success my-2" routerLink="/facturacion">Consultar Facturas Posteriores</button>
+	<button type="button" class="btn btn-outline-success my-2" routerLink="/facturacion">Consultar Facturas
+		Posteriores</button>
 	<br>
-    <button type="button" class="btn btn-outline-success mb-4" routerLink="/change-state">Actualizar Estado De La Linea Telefonica</button>
+	<button type="button" class="btn btn-outline-success mb-4" routerLink="/change-state">Actualizar Estado De La Linea
+		Telefonica</button>
 </div>
