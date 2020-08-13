@@ -9,7 +9,7 @@ import { FormBuilder } from '@angular/forms';
 export class SigninComponent {
 	
 	signin = this.fb.group({
-		nome: [''],
+		name: [''],
     	lastName: [''],
     	id: [''],
     	numberPhone: [''],

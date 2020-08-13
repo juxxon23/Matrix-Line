@@ -10,6 +10,7 @@ const routes: Routes = [
 	{ path: 'facturacion', loadChildren: () => import('./components/facturacion/facturacion.module').then(m => m.FacturacionModule) },
 	{ path: 'register', loadChildren: () => import('./components/register/register.module').then(m => m.RegisterModule) },
 	{ path: 'change-state', loadChildren: () => import('./components/change-state/change-state.module').then(m => m.ChangeStateModule) },
+	{ path: 'registroUsuario', loadChildren: () => import('./components/registro-usuario/registro-usuario.module').then(m => m.RegistroUsuarioModule) },
 ];
 
 @NgModule({

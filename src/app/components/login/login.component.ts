@@ -11,6 +11,10 @@ export class LoginComponent {
 	constructor(private fb: FormBuilder) { 
 	
 	}
+	login = this.fb.group({
+		document: [''],
+		pass: ['']
+	});
 
 	login_client = this.fb.group({
 		user: ['', Validators.required],
