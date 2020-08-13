@@ -1,12 +1,13 @@
-<div formGroupName="login" class="container-sm border border-dark text-center my-5"> 
+<form [formGroup]="login_client" (ngSubmit)="onSubmit()" class="container-sm border border-dark text-center my-5"> 
 	<h3 class="mt-2">Login</h3>
 	<label>
 		Documento<br>
+		<input type="text" formControlName="user" required>
 		<input type="text" formControlName="document">
 	</label><br>
 	<label>
 		Contraseña<br>
-		<input type="password" formControlName="pass">
+		<input type="password" formControlName="pass" required>
 	</label><br>
-	<button class="btn btn-success border border-dark mb-2" routerLink="/">Login</button>
-</div>
+	<button type="submit" [disabled]="login_client.invalid" class="btn btn-success border border-dark mb-2">Login</button>
+</form>
