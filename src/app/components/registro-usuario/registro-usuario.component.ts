@@ -13,6 +13,7 @@ export class RegistroUsuarioComponent {
     lastName: [''],
     id: [''],
     numberPhone: [''],
+    date:['']
 	});
 
   	constructor(private fb: FormBuilder) { }

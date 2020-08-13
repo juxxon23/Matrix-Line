@@ -9,7 +9,7 @@ import { FormBuilder } from '@angular/forms';
 export class LineComponent implements OnInit {
   
   	line = this.fb.group({
-    	documento: [''],
+    	document: [''],
     	numberLine: [''],
 		namePhone: [''],
 		legalState: ['']
