@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-facturacion',
   templateUrl: './facturacion.component.html',
   styleUrls: ['./facturacion.component.css']
 })
-export class FacturacionComponent implements OnInit {
+export class FacturacionComponent {
 
-  constructor() { }
+  facturacion = this.fb.group({
+    document: [''],
+    date: ['']
+  });
 
-  ngOnInit(): void {
+  constructor(private fb: FormBuilder) { }
+
+  onSubmit() {
   }
-
 }

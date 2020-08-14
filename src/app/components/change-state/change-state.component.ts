@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-change-state',
   templateUrl: './change-state.component.html',
   styleUrls: ['./change-state.component.css']
 })
-export class ChangeStateComponent implements OnInit {
+export class ChangeStateComponent {
 
-  constructor() { }
+  changeState = this.fb.group({
+    document: [''],
+  });
 
-  ngOnInit(): void {
+  constructor(private fb: FormBuilder) { }
+
+  onSubmit() {
   }
-
 }

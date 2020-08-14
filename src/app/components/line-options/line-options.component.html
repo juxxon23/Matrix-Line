@@ -1,4 +1,4 @@
-<div class="container-sm border border-dark text-center my-5">
+<form [formGroup]="lineOptions" (ngSubmit)="onSubmit()" class="container-sm border border-dark text-center my-5">
 	<h3 class="my-3">Matrix Line</h3>
 	<hr>
 	<div class="mt-2">
@@ -13,11 +13,11 @@
 			<path fill-rule="evenodd"
 				d="M5 11.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
 		</svg>
-		<input type="text" id="documento">
+		<input type="text" formControlName="document">
 	</div>
 	<button class="btn btn-success border border-dark mb-2">Search</button>
 	<p>¿No está registrado? <a class="link" routerLink="/registroUsuario">Registrar usuario</a></p>
-</div>
+</form>
 <div class="container-sm border border-dark text-center mt-2 mb-5">
 	<h3 class="my-3">¿Qué Desea Realizar?</h3>
 	<button type="button" class="btn btn-outline-success" routerLink="/line">Registrar Linea Telefonica
@@ -26,6 +26,7 @@
 	<button type="button" class="btn btn-outline-success my-2" routerLink="/facturacion">Consultar Facturas
 		Posteriores</button>
 	<br>
-	<button type="button" class="btn btn-outline-success mb-4" routerLink="/change-state">Actualizar Estado De La Linea
+	<button type="button" class="btn btn-outline-success mb-4" routerLink="/change-state">Actualizar Estado De La
+		Linea
 		Telefonica</button>
 </div>

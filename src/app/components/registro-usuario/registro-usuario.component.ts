@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { Component} from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registro-usuario',
@@ -7,14 +7,18 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./registro-usuario.component.css']
 })
 export class RegistroUsuarioComponent {
+  
+  constructor(private fb: FormBuilder){}
 
   registroUsuario = this.fb.group({
-		name: [''],
-    lastName: [''],
-    id: [''],
-    numberPhone: [''],
+		name: ['', Validators.required],
+    lastName: ['', Validators.required],
+    id: ['', Validators.required],
+    numberPhone: ['', Validators.required],
+    date:['']
 	});
 
-  	constructor(private fb: FormBuilder) { }
+  onSubmit(){
+  }
 
 }

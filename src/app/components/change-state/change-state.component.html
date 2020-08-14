@@ -1,6 +1,6 @@
-<div formGroupName="register" class="container-sm border border-dark text-center mt-2 mb-3"> 
-    <h3 class="mt-2">Actualizar Estado De La Linea</h3>
-    <label>
+<form [formGroup]="changeState" (ngSubmit)="onSubmit()" class="container-sm border border-dark text-center mt-2 mb-3">
+	<h3 class="mt-2">Actualizar Estado De La Linea</h3>
+	<label>
 		Documento<br>
 		<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-earmark-text" fill="currentColor"
 			xmlns="http://www.w3.org/2000/svg">
@@ -10,34 +10,34 @@
 			<path fill-rule="evenodd"
 				d="M5 11.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
 		</svg>
-		<input type="text" formControlName="documento">
-    </label>
-    <br>
+		<input type="text" formControlName="document">
+	</label>
+	<br>
 	<button class="btn btn-success border border-dark mb-2" routerLink="/">Consultar Linea</button>
-	<table class="table bg-dark text-white">
-		<thead>
-		  <tr>
+</form>
+<table class="table bg-dark text-white">
+	<thead>
+		<tr>
 			<th>Firstname</th>
 			<th>Lastname</th>
 			<th>Email</th>
-		  </tr>
-		</thead>
-		<tbody>
-		  <tr>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
 			<td>John</td>
 			<td>Doe</td>
 			<td>john@example.com</td>
-		  </tr>
-		  <tr>
+		</tr>
+		<tr>
 			<td>Mary</td>
 			<td>Moe</td>
 			<td>mary@example.com</td>
-		  </tr>
-		  <tr>
+		</tr>
+		<tr>
 			<td>July</td>
 			<td>Dooley</td>
 			<td>july@example.com</td>
-		  </tr>
-		</tbody>
-	  </table>
-</div>
+		</tr>
+	</tbody>
+</table>
