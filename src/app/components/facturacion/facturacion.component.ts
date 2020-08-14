@@ -13,6 +13,8 @@ export class FacturacionComponent {
     date: ['']
   });
 
+  estado = "none"  
+
   constructor(private fb: FormBuilder) { }
 
   onSubmit() {
