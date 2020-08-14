@@ -13,9 +13,9 @@
 		<input type="text" formControlName="document">
 	</label>
 	<br>
-	<button class="btn btn-success border border-dark mb-2" routerLink="/">Consultar Linea</button>
+	<button class="btn btn-success border border-dark mb-2">Consultar Linea</button>
 </form>
-<table class="table bg-dark text-white">
+<table class="table bg-dark text-white" [ngStyle]="{'display':'none'}">
 	<thead>
 		<tr>
 			<th>Firstname</th>
