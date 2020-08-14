@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { LoginServiceService } from '../../services/login-service.service';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +9,7 @@ import { LoginServiceService } from '../../services/login-service.service';
 })
 export class LoginComponent {
   	
-	constructor(private fb: FormBuilder, private rs :LoginServiceService) {
+	constructor(private fb: FormBuilder, private rs :LoginService) {
 	}
 
 	login_client = this.fb.group({
