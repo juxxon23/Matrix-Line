@@ -9,9 +9,11 @@ import { FormBuilder } from '@angular/forms';
 export class LineOptionsComponent {
 
   lineOptions = this.fb.group({
-		document: [''],
-	});
+    document: [''],
+  });
 
-  	constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) { }
 
+  onSubmit() {
+  }
 }

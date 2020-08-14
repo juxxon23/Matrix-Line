@@ -8,10 +8,12 @@ import { FormBuilder } from '@angular/forms';
 })
 export class ChangeStateComponent {
 
-  facturacion = this.fb.group({
+  changeState = this.fb.group({
     document: [''],
-	});
+  });
 
-  	constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) { }
 
+  onSubmit() {
+  }
 }

@@ -6,13 +6,15 @@ import { FormBuilder } from '@angular/forms';
   templateUrl: './facturacion.component.html',
   styleUrls: ['./facturacion.component.css']
 })
-export class FacturacionComponent{
+export class FacturacionComponent {
 
   facturacion = this.fb.group({
     document: [''],
     date: ['']
-	});
+  });
 
-  	constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) { }
 
+  onSubmit() {
+  }
 }
