@@ -13,15 +13,10 @@ export class FacturacionComponent {
     date: ['']
   });
 
-<<<<<<< HEAD
-  estado = "none"  
-=======
-  estado=false
-
+  estado : boolean = false;
   tabla(){
-    this.estado =! this.estado;
+    this.estado = true;
   }
->>>>>>> developer
 
   constructor(private fb: FormBuilder) { }
 

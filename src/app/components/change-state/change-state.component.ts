@@ -12,10 +12,10 @@ export class ChangeStateComponent {
     document: [''],
   });
 
-  estado=false
+  estado : boolean = false;
 
   tabla(){
-    this.estado =! this.estado;
+    this.estado = true;
   }
 
   constructor(private fb: FormBuilder) { }

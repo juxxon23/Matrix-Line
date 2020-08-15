@@ -18,7 +18,6 @@ app.add_url_rule(line["get_line"], view_func=line["view_func_get_line"])
 app.add_url_rule(bill["get_bill"], view_func=bill["view_func_get_bill"])
 app.add_url_rule(bill["delete_bill"], view_func=bill["view_func_delete_bill"])
 
-
 #user routes
 app.add_url_rule(user["create_user"], view_func=user["view_func_create_user"])
 app.add_url_rule(user["delete_user"], view_func=user["view_func_delete_user"])
