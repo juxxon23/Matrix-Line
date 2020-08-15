@@ -12,6 +12,12 @@ export class ChangeStateComponent {
     document: [''],
   });
 
+  estado=false
+
+  tabla(){
+    this.estado =! this.estado;
+  }
+
   constructor(private fb: FormBuilder) { }
 
   onSubmit() {

@@ -13,7 +13,15 @@ export class FacturacionComponent {
     date: ['']
   });
 
+<<<<<<< HEAD
   estado = "none"  
+=======
+  estado=false
+
+  tabla(){
+    this.estado =! this.estado;
+  }
+>>>>>>> developer
 
   constructor(private fb: FormBuilder) { }
 

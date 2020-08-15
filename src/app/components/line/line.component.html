@@ -1,30 +1,50 @@
-<form [formGroup]="line" (ngSubmit)="onSubmit()" class="container-sm border border-dark text-center mt-2 mb-3"> 
+<form [formGroup]="line" (ngSubmit)="onSubmit()" class="container-sm border border-dark text-center mt-2 mb-3">
 	<h3 class="mt-2">Register Phone Line</h3>
 	<label>
 		Documento<br>
+		<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-list" fill="currentColor"
+			xmlns="http://www.w3.org/2000/svg">
+			<path fill-rule="evenodd"
+				d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+			<path fill-rule="evenodd"
+				d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5z" />
+			<circle cx="3.5" cy="5.5" r=".5" />
+			<circle cx="3.5" cy="8" r=".5" />
+			<circle cx="3.5" cy="10.5" r=".5" />
+		</svg>
 		<input type="text" formControlName="document" required>
-    </label><br>
-    <label>
+	</label><br>
+	<label>
 		N. Linea Telefonica<br>
+		<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-telephone-fill" fill="currentColor"
+			xmlns="http://www.w3.org/2000/svg">
+			<path fill-rule="evenodd"
+				d="M2.267.98a1.636 1.636 0 0 1 2.448.152l1.681 2.162c.309.396.418.913.296 1.4l-.513 2.053a.636.636 0 0 0 .167.604L8.65 9.654a.636.636 0 0 0 .604.167l2.052-.513a1.636 1.636 0 0 1 1.401.296l2.162 1.681c.777.604.849 1.753.153 2.448l-.97.97c-.693.693-1.73.998-2.697.658a17.47 17.47 0 0 1-6.571-4.144A17.47 17.47 0 0 1 .639 4.646c-.34-.967-.035-2.004.658-2.698l.97-.969z" />
+		</svg>
 		<input type="text" formControlName="numberLine" required>
-    </label><br>
+	</label><br>
 	<label>
 		Serial del equipo<br>
+		<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-upc" fill="currentColor"
+			xmlns="http://www.w3.org/2000/svg">
+			<path
+				d="M3 4.5a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-7zm3 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7z" />
+		</svg>
 		<input type="text" formControlName="namePhone" required>
 	</label><br>
 	<label>
 		Estado Legal<br>
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">
-			  <label class="input-group-text" for="inputGroupSelect01">Opciones</label>
+				<label class="input-group-text" for="inputGroupSelect01">Opciones</label>
 			</div>
 			<select class="custom-select" id="inputGroupSelect01" formControlName="legalState" required>
-			  <option selected>Selecciona...</option>
-			  <option value="reportado">Reportado</option>
-			  <option value="no-reportado">No Reportado</option>
+				<option selected>Selecciona...</option>
+				<option value="reportado">Reportado</option>
+				<option value="no-reportado">No Reportado</option>
 			</select>
-		  </div>
-    </label><br>
-    <button type="submit" [disabled]="line.invalid" class="btn btn-success border border-dark mb-2">Registrar linea Postpago</button>
+		</div>
+	</label><br>
+	<button type="submit" [disabled]="line.invalid" class="btn btn-success border border-dark mb-2">Registrar linea
+		Postpago</button>
 </form>
-
