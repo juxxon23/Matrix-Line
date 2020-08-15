@@ -1,6 +1,6 @@
 from flask.views import MethodView
 from flask import jsonify,request
-from .BaseDatos import users
+from data.baseDatos import users
 
 class Login(MethodView):
 
