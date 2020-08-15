@@ -1,11 +1,16 @@
 from flask.views import MethodView
-from flask import jsonify
+from flask import jsonify, request
+
 
 class Login(MethodView):
 
+    
     def get(self):
-        return jsonify({'state':'get back'}),200
-
+        pass
+        #if request.args.get('idclient') == "Grim" and request.args.get('passclient') == "123":
+         #   return jsonify({'from':'Backend - Flask', 'state':'Welcome'}), 200
+        #return jsonify({'from':'Backend - Flask', 'state':'Incorrect user'}), 499
     def post(self):
-        return jsonify({'state':'back'}), 200
+        data_login = request.get_json()
+        return jsonify(data_login), 200
         

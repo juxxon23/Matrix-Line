@@ -12,7 +12,7 @@ client = {
 
 line = {
 
-    "create_line":"/line", "view_func_create_line":Line.as_view("app_create_line"),
+    "create_line":"/line/create", "view_func_create_line":Line.as_view("app_create_line"),
     "delete_line":"/line/delete/<idline>", "view_func_delete_line":Line.as_view("app_delete_line"),
     "update_line":"/line/update/<ced>/<idline>", "view_func_update_line":Line.as_view("app_update_line"),
     "get_line":"/line/<idline>", "view_func_get_line":Line.as_view("app_get_line")
