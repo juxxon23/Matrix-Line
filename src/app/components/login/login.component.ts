@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { LoginService } from '../../services/login.service';
+import { JsonManagerService } from '../../services/jsonManager.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +9,7 @@ import { LoginService } from '../../services/login.service';
 })
 export class LoginComponent {
   	
-	constructor(private fb: FormBuilder, private rs :LoginService) {}
+	constructor(private fb: FormBuilder, private rs :JsonManagerService) {}
 
 	login_client = this.fb.group({
 		document: ['', Validators.required],
@@ -19,10 +19,11 @@ export class LoginComponent {
 
 	/*idclient : string;
 	passclient : string;*/
+	url : string = '127.0.0.1:5000/login';
 	dataEx : JSON;
 
 	onSubmit() {
-		this.rs.postData(this.login_client.value).subscribe(data => {
+		this.rs.postData(this.url, this.login_client.value).subscribe(data => {
 			this.dataEx = data as JSON;
 			console.log(this.dataEx['pass'])
 		});
