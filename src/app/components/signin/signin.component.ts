@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { JsonManagerService } from '../../services/jsonManager.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
 	selector: 'app-signin',
@@ -16,9 +18,24 @@ export class SigninComponent {
 		numberPhone: ['', Validators.required],
 	});
 
-	constructor(private fb: FormBuilder) { }
-
+	constructor(
+		private fb: FormBuilder,
+		private rs :JsonManagerService,
+		private router : Router,
+		private route : ActivatedRoute
+	) { }
+	
+	url_signin : string = 'http://127.0.0.1:5000/signin'
+	dataEx : JSON;
 	onSubmit() {
-		console.log(this.signin.value)
+			/* Metodo post */
+			this.rs.postData(this.url_signin,this.signin.value).subscribe(data => {
+			this.dataEx = data as JSON;
+			if(this.dataEx['state'] == 'welcome') {
+				this.router.navigate(['/'], {relativeTo: this.route});
+			} else {
+				console.log(this.dataEx);
+			}
+		});
 	}
 }
