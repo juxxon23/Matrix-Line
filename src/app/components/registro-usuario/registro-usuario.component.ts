@@ -11,7 +11,7 @@ export class RegistroUsuarioComponent {
   constructor(private fb: FormBuilder){}
 
   registroUsuario = this.fb.group({
-		name: ['', Validators.required],
+  	name: ['', Validators.required],
     lastName: ['', Validators.required],
     id: ['', Validators.required],
     numberPhone: ['', Validators.required],
