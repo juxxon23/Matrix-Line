@@ -10,6 +10,13 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class SigninComponent {
 
+	constructor(
+		private fb: FormBuilder,
+		private rs :JsonManagerService,
+		private router : Router,
+		private route : ActivatedRoute
+	) { }
+
 	signin = this.fb.group({
 		name: ['', Validators.required],
 		lastName: ['', Validators.required],
@@ -18,23 +25,28 @@ export class SigninComponent {
 		numberPhone: ['', Validators.required],
 	});
 
-	constructor(
-		private fb: FormBuilder,
-		private rs :JsonManagerService,
-		private router : Router,
-		private route : ActivatedRoute
-	) { }
 	
 	url_signin : string = 'http://127.0.0.1:5000/signin'
 	dataEx : JSON;
+	state : string;
+
 	onSubmit() {
 			/* Metodo post */
 			this.rs.postData(this.url_signin,this.signin.value).subscribe(data => {
 			this.dataEx = data as JSON;
-			if(this.dataEx['state'] == 'welcome') {
-				this.router.navigate(['/'], {relativeTo: this.route});
-			} else {
-				console.log(this.dataEx);
+			this.state = this.dataEx['state'];
+			switch(this.state) {
+				case 'welcome': {
+					this.router.navigate(['/login'], {relativeTo: this.route});
+					console.log('Complete');
+					break;
+				} case 'error': {
+					console.log('Error')
+					break;
+				} default: {
+					console.log('Operacion no contemplada')
+					break;
+				}
 			}
 		});
 	}
