@@ -8,19 +8,23 @@ import { HttpClient } from '@angular/common/http';
 export class JsonManagerService {
 
   	constructor(public http: HttpClient) { }
-
-	postData(url:string, dataEx:JSON) {
-		return this.http.post(url, dataEx); 
-	}
-
+	
+	/* Get */
 	getData(url:string) {
 		return this.http.get(url);
 	}
-
+	
+	/* Post con Json */
+	postData(url:string, dataEx:JSON) {
+		return this.http.post(url, dataEx); 
+	}
+	
+	/* Put con Json */
 	updateData(url:string, dataEx:JSON) {
 		return this.http.put(url,dataEx);
 	}
 
+	/* Delete con parametros de consulta */
 	deleteData(url:string, dataEx:string) {
 		return this.http.delete(url, {
 			params: {
@@ -29,14 +33,13 @@ export class JsonManagerService {
 		});
 	}
 
-
-	/* Get con parametros de consulta
-	getState(user:string, passclient:string) {
-		return this.http.get(this.url, {
+	/* Get con parametros de consulta */
+	getState(url:string, user:string, passclient:string) {
+		return this.http.get(url, {
 			params: {
 				'idclient' : user,
 				'passclient' : passclient
 			}
 		})	
-	}*/
+	}
 }
