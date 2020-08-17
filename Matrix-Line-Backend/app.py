@@ -5,7 +5,7 @@ from routes import *
 from data.model import db
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:pass123@localhost:5432/prueba_uno"
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:pass123@localhost:5432/Matrix_line"
 
 CORS(app)
 db.init_app(app)
