@@ -1,12 +1,26 @@
 from flask.views import MethodView
 from flask import jsonify,request
-from data.baseDatos import users
 
 class Login(MethodView):
 
     def post(self):
-        #se almacena en un lista json lo que llega por post
-            userLogin = {
+        dataEx = request.get_json()
+        if dataEx['pass'] == 'perra3':
+            return jsonify({'state':'welcome'})
+        else:
+            return jsonify({'state':'Login incorrecto, inutil'})
+
+    def put(self):
+        dataEx = request.get_json()
+        nuevo = int(dataEx['document']) + 2
+        return jsonify({'state':'put', 'data':nuevo})
+        
+    def delete(self):
+        dataEx = request.args.get('id')
+        return jsonify({'state':dataEx})
+
+#se almacena en un lista json lo que llega por post
+        '''  userLogin = {
                 "password": request.json['password'],
                 "documento": request.json['documento']
             }
@@ -19,5 +33,7 @@ class Login(MethodView):
             userPassword = [ users for users in users if users['password'] == password ]
 
             if userDocumento and userPassword :
-                return jsonify({"message": "login succesfulluy"})
+                return jsonify({"state": "welcome"})
             return jsonify({"message": "login error"})
+            '''
+
