@@ -11,7 +11,7 @@ export class LineComponent {
   	line = this.fb.group({
     	document: ['', Validators.required],
     	numberLine: ['', Validators.required],
-		namePhone: ['', Validators.required],
+    	namePhone: ['', Validators.required],
 		legalState: ['', Validators.required]
 	});
 
