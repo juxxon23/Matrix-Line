@@ -32,8 +32,8 @@ export class SigninComponent {
 
 	onSubmit() {
 			/* Metodo post */
-			this.rs.postData(this.url_signin,this.signin.value).subscribe(data => {
-			this.dataEx = data as JSON;
+			this.rs.postData(this.url_signin,this.signin.value).subscribe((data: any) => {
+			this.dataEx = data;
 			this.state = this.dataEx['state'];
 			switch(this.state) {
 				case 'welcome': {

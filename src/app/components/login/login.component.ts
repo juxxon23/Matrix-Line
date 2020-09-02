@@ -28,8 +28,9 @@ export class LoginComponent {
 
 	onSubmit() {
 		/* Post */
-		this.rs.postData(this.url_login,this.login_client.value).subscribe(data => {
-			this.dataEx = data as JSON;
+		this.rs.postData(this.url_login, this.login_client.value).subscribe((data: any) => {
+			this.dataEx = data;
+			localStorage.setItem("token",this.dataEx['token'])
 			this.state = this.dataEx['state'];
 			switch(this.state) {
 				case 'welcome': {

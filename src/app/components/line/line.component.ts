@@ -30,7 +30,7 @@ export class LineComponent {
   state : string;
 
   onSubmit() {
-  	  /* Post */
+  	  /* Post 
   	  this.rs.postData(this.url_login,this.line.value).subscribe(data => {
   	  	  this.dataEx = data as JSON;
   	  	  this.state = this.dataEx['state'];
@@ -52,6 +52,6 @@ export class LineComponent {
   	  	  	  	  console.log('Error');
   	  	  	  }
   	  	  }
-  	  });
+  	  });*/
   }
 }
