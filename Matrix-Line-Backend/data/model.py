@@ -9,7 +9,7 @@ class Asesor(db.Model):
     nombre_a = db.Column(db.String(50), nullable=False)
     apellido_a = db.Column(db.String(50), nullable=False)
     documento_a = db.Column(db.String(20), nullable=False, unique=True)
-    password_a = db.Column(db.String(32), nullable=False)
+    password_a = db.Column(db.String(128), nullable=False)
     telefono_a = db.Column(db.String(20))
 
 

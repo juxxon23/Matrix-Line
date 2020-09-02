@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +15,15 @@ export class JsonManagerService {
 	}
 	
 	/* Post con Json */
-	postData(url:string, dataEx:JSON) {
-		return this.http.post(url, dataEx); 
+	postData(url:string, dataEx?:any, token?:string) {
+		let config: any = {
+			responseType: "json"
+		}
+		if (token) {
+			const header = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+			config['header'] = header;
+		}
+		return this.http.post(url, dataEx, config); 
 	}
 	
 	/* Put con Json */
