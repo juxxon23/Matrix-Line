@@ -25,6 +25,7 @@ export class LoginComponent {
 	url_login : string = 'http://127.0.0.1:5000/login';	
 	dataEx : JSON;
 	state : string;	
+
 	onSubmit() {
 		/* Post */
 		this.rs.postData(this.url_login,this.login_client.value).subscribe(data => {
@@ -41,6 +42,8 @@ export class LoginComponent {
 				} case 'document': {
 					console.log('Incorrect id');
 					break;
+				} case 'error': {
+					console.log('Error');
 				} default: {
 					console.log('Error');
 				}

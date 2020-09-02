@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 class Asesor(db.Model):
-    __tablename__ = 'asesor'
+    __tablename__ = 'Asesor'
 
     id_asesor = db.Column(db.Integer, primary_key=True, index=True)
     nombre_a = db.Column(db.String(50), nullable=False)
@@ -22,14 +22,14 @@ class Asesor(db.Model):
 
 
 class Usuario(db.Model):
-    __tablename__ = 'usuario'
+    __tablename__ = 'Usuario'
 
     nombre_u = db.Column(db.String(50), nullable=False)
     apellido_u = db.Column(db.String(50), nullable=False)
     documento_u = db.Column(db.String(20), nullable=False, primary_key=True)
     telefono_u = db.Column(db.String(20))
     fecha_nacimiento = db.Column(db.String(20), nullable=False)
-    linea_c = db.relationship('linea', backref='documento', lazy='dynamic', foreign_keys='linea.documento_usuario')
+    linea_c = db.relationship('Linea', backref='documento', lazy='dynamic', foreign_keys='Linea.documento_usuario')
 
 
     def __init__(self, nombre_u, apellido_u, documento_u, telefono_u, fecha_nacimiento):
@@ -40,13 +40,13 @@ class Usuario(db.Model):
         self.fecha_nacimiento = fecha_nacimiento
 
 class Equipo(db.Model):
-    __tablename__ = 'equipo'
+    __tablename__ = 'Equipo'
 
     serial_equipo = db.Column(db.Integer, primary_key=True)
     marca = db.Column(db.String(50))
     descripcion = db.Column(db.String(50))
     estado_legal = db.Column(db.Boolean, default=1, nullable=False)
-    linea_co = db.relationship('linea', backref='serial', lazy='dynamic', foreign_keys='linea.serial_e')
+    linea_co = db.relationship('Linea', backref='serial', lazy='dynamic', foreign_keys='Linea.serial_e')
 
 
     def __init__(self, serial_equipo, marca, descripcion, estado_legal):
@@ -56,13 +56,13 @@ class Equipo(db.Model):
         self.estado_legal = estado_legal
 
 class Linea(db.Model):
-    __tablename__ = 'linea'
+    __tablename__ = 'Linea'
 
     numero_linea = db.Column(db.String(30), primary_key=True, nullable=False)
     estado_linea = db.Column(db.Boolean, default=1)
-    documento_usuario = db.Column(db.String(20), db.ForeignKey('usuario.documento_u'))
-    serial_e = db.Column(db.Integer, db.ForeignKey('equipo.serial_equipo'))
-    factura = db.relationship('factura', backref='numero', lazy='dynamic', foreign_keys='factura.numero_l')
+    documento_usuario = db.Column(db.String(20), db.ForeignKey('Usuario.documento_u'))
+    serial_e = db.Column(db.Integer, db.ForeignKey('Equipo.serial_equipo'))
+    factura = db.relationship('Factura', backref='numero', lazy='dynamic', foreign_keys='Factura.numero_l')
 
     def __init__(self, numero_linea, estado_linea, documento_usuario, serial_e):
         self.numero_linea = numero_linea
@@ -71,10 +71,10 @@ class Linea(db.Model):
         self.serial_e = serial_e
 
 class Factura(db.Model):
-    __tablename__ = 'factura'
+    __tablename__ = 'Factura'
 
     id_factura = db.Column(db.Integer, primary_key=True, nullable=False)
-    numero_l = db.Column(db.String(30), db.ForeignKey('linea.numero_linea'))
+    numero_l = db.Column(db.String(30), db.ForeignKey('Linea.numero_linea'))
     fecha_emision = db.Column(db.DateTime, nullable=False)
     valor = db.Column(db.Float())
 

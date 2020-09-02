@@ -3,12 +3,13 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from routes import *
 from data.model import db
+from flask_migrate import Migrate
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:pass123@localhost:5432/Matrix_line"
-
 CORS(app)
 db.init_app(app)
+migrate = Migrate(app,db)
 
 # Client routes
 app.add_url_rule(client["signin"], view_func=client["view_func_signin"])

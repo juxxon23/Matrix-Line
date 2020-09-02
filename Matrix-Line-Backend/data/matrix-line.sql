@@ -11,7 +11,7 @@
 --  	TABLESPACE = pg_default
 --   	CONNECTION LIMIT = -1;
 	
-CREATE TABLE Asesor (
+CREATE TABLE asesor (
 	id_asesor INTEGER PRIMARY KEY NOT NULL,
 	nombre_a varchar(50) NOT NULL,
 	apellido_a varchar(50) NOT NULL,
@@ -20,7 +20,7 @@ CREATE TABLE Asesor (
 	telefono_a varchar(20)
 );
 
-CREATE TABLE Usuario (
+CREATE TABLE usuario (
 	nombre_u varchar(50) NOT NULL,
 	apellido_u varchar(50) NOT NULL,
 	documento_u varchar(20) PRIMARY KEY NOT NULL,
@@ -28,23 +28,23 @@ CREATE TABLE Usuario (
 	fecha_nacimiento varchar(20) NOT NULL
 );
 
-CREATE TABLE Equipo (
+CREATE TABLE equipo (
 	serial_equipo INTEGER PRIMARY KEY NOT NULL,
 	marca varchar(50),
 	descripcion varchar(50),
 	estado_legal boolean DEFAULT '1' NOT NULL
 );
 
-CREATE TABLE Linea (
+CREATE TABLE linea (
 	numero_linea varchar(30) PRIMARY KEY NOT NULL,
 	estado_linea boolean DEFAULT '1',
-	documento_u varchar(20) REFERENCES Usuario(documento_u),
-	serial_equipo INTEGER REFERENCES Equipo(serial_equipo)
+	documento_u varchar(20) REFERENCES usuario(documento_u),
+	serial_equipo INTEGER REFERENCES equipo(serial_equipo)
 );
 
-CREATE TABLE Factura (
+CREATE TABLE factura (
 	id_factura INTEGER PRIMARY KEY NOT NULL,
-	numero_linea varchar(30) REFERENCES Linea(numero_linea),
+	numero_linea varchar(30) REFERENCES linea(numero_linea),
 	fecha_emision DATE,
 	valor DOUBLE PRECISION
 );
