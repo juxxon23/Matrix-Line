@@ -9,20 +9,37 @@ export class JsonManagerService {
 
   	constructor(public http: HttpClient) { }
 	
-	postData(url:string, data_login:JSON) {
-		return this.http.post(url, data_login); 
-	}
-
+	/* Get */
 	getData(url:string) {
 		return this.http.get(url);
 	}
-	/* Get con parametros de consulta
-	getState(user:string, passclient:string) {
-		return this.http.get(this.url, {
+	
+	/* Post con Json */
+	postData(url:string, dataEx:JSON) {
+		return this.http.post(url, dataEx); 
+	}
+	
+	/* Put con Json */
+	updateData(url:string, dataEx:JSON) {
+		return this.http.put(url,dataEx);
+	}
+
+	/* Delete con parametros de consulta */
+	deleteData(url:string, dataEx:string) {
+		return this.http.delete(url, {
+			params: {
+				id: dataEx
+			}
+		});
+	}
+
+	/* Get con parametros de consulta */
+	getState(url:string, user:string, passclient:string) {
+		return this.http.get(url, {
 			params: {
 				'idclient' : user,
 				'passclient' : passclient
 			}
 		})	
-	}*/
+	}
 }

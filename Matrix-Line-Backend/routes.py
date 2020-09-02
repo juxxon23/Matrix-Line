@@ -13,26 +13,18 @@ client = {
 
 line = {
 
-    "create_line":"/line/create", "view_func_create_line":Line.as_view("app_create_line"),
-    "delete_line":"/line/delete/<idline>", "view_func_delete_line":Line.as_view("app_delete_line"),
-    "update_line":"/line/update/<ced>/<idline>", "view_func_update_line":Line.as_view("app_update_line"),
-    "get_line":"/line/<idline>", "view_func_get_line":Line.as_view("app_get_line")
-    
+    "line":"/line", "view_func_line":Line.as_view("app_line"), 
 }
 
 bill = {
     
-    "get_bill":"/bill/<ced>/<date>", "view_func_get_bill":Bill.as_view("app_get_bill"),
-    "delete_bill":"/bill/delete/<ced>/<date>", "view_func_delete_bill":Bill.as_view("app_delete_bill"),
+    "bill":"/bill", "view_func_bill":Bill.as_view("app_bill"),
 
 }
 
 user = {
 
-    "create_user":"/user", "view_func_create_user":User.as_view("app_create_user"),
-    "delete_user":"/user/delete/<iduser>", "view_func_delete_user":User.as_view("app_delete_user"),
-    "update_user":"/user/update/<ced>/<iduser>", "view_func_update_user":User.as_view("app_update_user"),
-    "get_user"   :"/user/<iduser>", "view_func_get_user":User.as_view("app_get_user")
+    "user":"/user", "view_func_user":User.as_view("app_user"),
 
 }
 

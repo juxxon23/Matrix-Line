@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { JsonManagerService } from '../../services/jsonManager.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,35 +10,62 @@ import { JsonManagerService } from '../../services/jsonManager.service';
 })
 export class LoginComponent {
   	
-	constructor(private fb: FormBuilder, private rs :JsonManagerService) {}
+	constructor(
+		private fb: FormBuilder, 
+		private rs :JsonManagerService,
+		private router : Router,
+		private route : ActivatedRoute
+	) {}
 
 	login_client = this.fb.group({
 		document: ['', Validators.required],
 		pass: ['', Validators.required]
 	});
-	
 
-	/*idclient : string;
-	passclient : string;*/
-	url : string = '127.0.0.1:5000/login';
+	url_login : string = 'http://127.0.0.1:5000/login';	
 	dataEx : JSON;
+	state : string;	
 
 	onSubmit() {
-		this.rs.postData(this.url, this.login_client.value).subscribe(data => {
+		/* Post */
+		this.rs.postData(this.url_login,this.login_client.value).subscribe(data => {
 			this.dataEx = data as JSON;
-			console.log(this.dataEx['pass'])
+			this.state = this.dataEx['state'];
+			switch(this.state) {
+				case 'welcome': {
+					this.router.navigate(['/'], {relativeTo: this.route});
+					console.log('Welcome');
+					break;
+				} case 'password': {
+					console.log('Incorrect Password');
+					break;
+				} case 'document': {
+					console.log('Incorrect id');
+					break;
+				} case 'error': {
+					console.log('Error');
+				} default: {
+					console.log('Error');
+				}
+			}
 		});
-		/*this.rs.getData().subscribe(data => {
+
+		/* Metodo delete
+		   this.rs.deleteData(this.url_login, this.login_client.get('pass').value).subscribe(data => {
 			this.dataEx = data as JSON;
 			console.log(this.dataEx);
-		})*/
-		/*  Prueba get parametros
-		this.idclient = this.login_client.get('document').value;
-		this.passclient = this.login_client.get('pass').value;	
-		this.rs.getState(this.idclient, this.passclient).subscribe(data => {
-			this.dataEx = data as JSON;
-			console.log(this.dataEx);
-		})*/
-	   
+		});*/
+
+		/* Metodo put
+		   this.rs.updateData(this.url_login, this.login_client.value).subscribe(data => {
+	this.dataEx = data as JSON;
+	console.log(this.dataEx);
+		});*/
+
+		/* Metodo get
+	   	  this.rs.getData(this.url).subscribe(data => {
+	   	  	this.dataEx = data as JSON;
+	   	  	console.log(this.dataEx);
+	   	  })*/
 	}
 }
