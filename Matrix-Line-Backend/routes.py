@@ -3,6 +3,7 @@ from controllers.login import Login
 from controllers.line import Line
 from controllers.bill import Bill
 from controllers.user import User
+from controllers.check import Check
 
 client = {
 
@@ -28,7 +29,10 @@ user = {
 
 }
 
+check = {
 
+        "check":"/check", "view_func_check":Check.as_view("app_check"),
+}
 
 
 
