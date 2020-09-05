@@ -18,6 +18,15 @@ export class ChangeStateComponent {
     this.estado = true;
   }
 
+  headers= ["ID", "Numero De La Linea"]
+
+  rows=[
+    {
+      "ID": "1",
+      "Numero De La Linea": "3142184354"
+    }
+  ]
+
   constructor(private fb: FormBuilder) { }
 
   onSubmit() {
