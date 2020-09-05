@@ -1,4 +1,5 @@
 from data.model import db
+from sqlalchemy.exc import SQLAlchemyError
 
 class DataManager():
     
@@ -7,6 +8,8 @@ class DataManager():
             db.session.add(new)
             db.session.commit()
             return 'welcome'
+        except SQLAlchemyError as e:
+            print(e)
         except:
             return 'error'
        
