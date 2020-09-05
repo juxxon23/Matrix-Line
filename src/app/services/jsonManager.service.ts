@@ -10,20 +10,16 @@ export class JsonManagerService {
   	constructor(public http: HttpClient) { }
 	
 	/* Get */
-	getData(url:string) {
-		return this.http.get(url);
+	getData(url:string, token?:any) {
+		return this.http.get(url, {
+			headers: new HttpHeaders().set('Authorization', `Bearer ${token}`),
+			withCredentials:true
+		});
 	}
 	
 	/* Post con Json */
-	postData(url:string, dataEx?:any, token?:string) {
-		let config: any = {
-			responseType: "json"
-		}
-		if (token) {
-			const header = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-			config['header'] = header;
-		}
-		return this.http.post(url, dataEx, config); 
+	postData(url:string, dataEx?:any) {
+		return this.http.post(url, dataEx,); 
 	}
 	
 	/* Put con Json */

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { FormBuilder } from '@angular/forms';
   templateUrl: './line-options.component.html',
   styleUrls: ['./line-options.component.css']
 })
-export class LineOptionsComponent {
+export class LineOptionsComponent implements OnInit {
 
   lineOptions = this.fb.group({
     document: [''],
@@ -14,6 +14,7 @@ export class LineOptionsComponent {
 
   constructor(private fb: FormBuilder) { }
 
-  onSubmit() {
-  }
-}
+  onSubmit() {}
+
+  ngOnInit(): void {} 
+} 
