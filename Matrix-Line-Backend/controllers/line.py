@@ -1,15 +1,14 @@
 from flask.views import MethodView
 from flask import json, request, jsonify
-from data.model import Usuario, Linea, Equipo
+from data.model import Usuario, Linea, Equipo, Factura
 from helpers.data_manager import DataManager
+from random import uniform
+import datetime
+
 
 data_m = DataManager()
 
-class Line(MethodView):
-
-    def get(self, idline):
-        return 'get line' + idline, 200
-    
+class Line(MethodView):   
 
     def post(self):
         dataEx = request.get_json()
@@ -18,16 +17,29 @@ class Line(MethodView):
             linea = Linea.query.filter_by(numero_linea=dataEx['numberLine']).first()
             if linea == None:
                 try:
+                    estado = dataEx['legalState']
+                    if estado == 'True':
+                        estado = True
+                    elif estado == 'False':
+                        estado = False
+
+                    new_equipo = Equipo(
+                            serial_equipo = int(dataEx['namePhone']),
+                            estado_legal = estado,
+                            marca = dataEx['brand'],
+                            descripcion = dataEx['description'])
                     new_line = Linea(
                            numero_linea  = dataEx['numberLine'],
                            estado_linea = True,
                            documento_usuario = dataEx['document'],
-                           serial_e = dataEx['serial_e'])
-                    new_equipo = Equipo(
-                            serial_equipo = dataEx['namePhone'],
-                            estado_legal = dataEx['legalState'])
-                    state = data_m.add(new_line)
+                           serial_e = int(dataEx['namePhone']))
+                    new_factura = Factura(
+                            numero_l = dataEx['numberLine'],
+                            fecha_emision = datetime.datetime.now(),
+                            valor = round(uniform(10000, 1000000),2))
                     state = data_m.add(new_equipo)
+                    state = data_m.add(new_line)
+                    state = data_m.add(new_factura)
                     return jsonify({'state':state})
                 except:
                     return jsonify({'state':'error'})
