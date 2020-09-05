@@ -15,7 +15,9 @@ export class LineComponent {
     	document: ['', Validators.required],
     	numberLine: ['', Validators.required],
     	namePhone: ['', Validators.required],
-		legalState: ['', Validators.required]
+		legalState: ['', Validators.required],
+		brand: ['', Validators.required],
+		description: ['']
 	});
 
   constructor(
