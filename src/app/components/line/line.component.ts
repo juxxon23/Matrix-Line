@@ -27,22 +27,22 @@ export class LineComponent {
   	  private route : ActivatedRoute
 	) { }
 
-  url_login : string = 'http://127.0.0.1:5000/line';	
+  url_line : string = 'http://127.0.0.1:5000/line';	
   dataEx : JSON;
   state : string;
 
   onSubmit() {
-  	  /* Post 
-  	  this.rs.postData(this.url_login,this.line.value).subscribe(data => {
-  	  	  this.dataEx = data as JSON;
+  	  /* Post */ 
+  	  this.rs.postData(this.url_line,this.line.value).subscribe((data:any) => {
+  	  	  this.dataEx = data;
   	  	  this.state = this.dataEx['state'];
   	  	  switch(this.state) {
   	  	  	  case 'welcome': {
-  	  	  	  	  this.router.navigate(['/'], {relativeTo: this.route});
+  	  	  	  	  this.router.navigate(['/lineOptions'], {relativeTo: this.route});
   	  	  	  	  console.log('Welcome');
   	  	  	  	  break;
   	  	  	  } case 'error': {
-  	  	  	  	  console.log('No se pudo procesar el registro');
+  	  	  	  	  console.log('No se pudo procesar el registro de la linea');
   	  	  	  	  break;
   	  	  	  } case 'line': {
   	  	  	  	  console.log('La linea ya existe');
@@ -54,6 +54,6 @@ export class LineComponent {
   	  	  	  	  console.log('Error');
   	  	  	  }
   	  	  }
-  	  });*/
+  	  });
   }
 }
