@@ -14,7 +14,7 @@ class Login(MethodView):
         data = Asesor.query.filter_by(documento_a=dataEx['document']).first()
         if data != None:
             if bcrypt.checkpw(pass_Ex, data.password_a.encode('utf-8')):
-                encoded_jwt = jwt.encode({'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=60), 'nombre': data.nombre_a}, KEY_TOKEN_AUTH, algorithm='HS256')
+                encoded_jwt = jwt.encode({'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=300), 'nombre': data.nombre_a}, KEY_TOKEN_AUTH, algorithm='HS256')
                 return jsonify({'state':'welcome', 'token':encoded_jwt}), 200
             else:
                  return jsonify({'state':'password'}), 400

@@ -7,7 +7,7 @@ from flask_migrate import Migrate
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:pass123@localhost:5432/Matrix_line"
-CORS(app)
+CORS(app, supports_credentials=True)
 db.init_app(app)
 migrate = Migrate(app,db)
 
@@ -23,6 +23,9 @@ app.add_url_rule(bill["bill"], view_func=bill["view_func_bill"])
         
 #user routes
 app.add_url_rule(user["user"], view_func=user["view_func_user"])
+
+#check route
+app.add_url_rule(check["check"],view_func=check["view_func_check"])
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True)

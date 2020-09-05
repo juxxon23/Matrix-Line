@@ -3,6 +3,7 @@ from flask.views import MethodView
 from data.model import Usuario 
 from helpers.data_manager import DataManager
 
+
 data_m = DataManager()
 
 class User(MethodView):
@@ -20,4 +21,5 @@ class User(MethodView):
             return jsonify({'state':state})
         except:
             return jsonify({'state':state})
+        return jsonify({'state':state})
   
