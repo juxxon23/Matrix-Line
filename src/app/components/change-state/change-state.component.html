@@ -12,27 +12,23 @@
 			<circle cx="3.5" cy="8" r=".5" />
 			<circle cx="3.5" cy="10.5" r=".5" />
 		</svg>
-		<input type="text" formControlName="document">
+		<input type="text" formControlName="document" required>
 	</label>
 	<br>
-	<button (click)="tabla()" class="btn btn-success border border-dark mb-2">Consultar Linea</button>
+	<button type="submit" [disabled]="changeState.invalid" class="btn btn-success border border-dark mb-2">Consultar Linea</button>
 </form>
 <table class="container table bg-dark text-white text-center" *ngIf="estado">
 	<tr>
 		<th *ngFor= "let column of headers">
 			{{column}}
 		</th>
-		<th>
-			Estado
-		</th>
 	</tr>
-
 	<tr *ngFor= "let row of rows">
 		<td *ngFor= "let column of headers">
 			{{row[column]}}
 		</td>
 		<td>
-		<button type="button" class="btn btn-success">Activo</button>
+			<button type="button" class="btn btn-success">Activo</button>
 		</td>
 	</tr>
 </table>
