@@ -4,6 +4,7 @@ from controllers.line import Line
 from controllers.bill import Bill
 from controllers.user import User
 from controllers.check import Check
+from controllers.consultUser import ConsultUser
 
 client = {
 
@@ -20,6 +21,12 @@ line = {
 bill = {
     
     "bill":"/bill", "view_func_bill":Bill.as_view("app_bill"),
+
+}
+
+consultUser = {
+
+    "consultUser":"/consultUser", "view_func_consultUser":ConsultUser.as_view("app_consultUser"),
 
 }
 
