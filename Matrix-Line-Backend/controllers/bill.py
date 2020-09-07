@@ -2,6 +2,9 @@ from flask.views import MethodView
 from flask import json
 
 class Bill(MethodView):
+    """
+    def post(self):
+    """
 
     def get(self, ced, date):
         message = "Get bill, Cedula: {}, Fecha: {}".format(ced, date) 
