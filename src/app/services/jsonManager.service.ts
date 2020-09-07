@@ -18,12 +18,12 @@ export class JsonManagerService {
 	}
 	
 	/* Post con Json */
-	postData(url:string, dataEx?:any) {
-		return this.http.post(url, dataEx,); 
+	postData(url:string, dataEx:any) {
+		return this.http.post(url, dataEx); 
 	}
 	
 	/* Put con Json */
-	updateData(url:string, dataEx:JSON) {
+	updateData(url:string, dataEx:any) {
 		return this.http.put(url,dataEx);
 	}
 
