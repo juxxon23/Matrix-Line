@@ -20,7 +20,10 @@ app.add_url_rule(line["line"], view_func=line["view_func_line"])
 
 # Bill routes
 app.add_url_rule(bill["bill"], view_func=bill["view_func_bill"])
-        
+
+#consultUser
+app.add_url_rule(consultUser["consultUser"], view_func=consultUser["view_func_consultUser"])
+
 #user routes
 app.add_url_rule(user["user"], view_func=user["view_func_user"])
 
