@@ -25,7 +25,10 @@ app.add_url_rule(bill["bill"], view_func=bill["view_func_bill"])
 app.add_url_rule(user["user"], view_func=user["view_func_user"])
 
 #check route
-app.add_url_rule(check["check"],view_func=check["view_func_check"])
+app.add_url_rule(check["check"], view_func=check["view_func_check"])
+
+#change route
+app.add_url_rule(change["change"], view_func=change["view_func_change"])
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True)
