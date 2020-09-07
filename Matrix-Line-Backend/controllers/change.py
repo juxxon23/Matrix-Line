@@ -18,10 +18,7 @@ class Change(MethodView):
                         "Numero de Linea":row.numero_linea,
                         "Estado de Linea":row.estado_linea
                         }
-                
                 documento.append(dic)
-                print(dic)
-            print(documento)
             return jsonify({'state':'welcome', 'data': documento})
         else:
             return jsonify({'state':'document'})
