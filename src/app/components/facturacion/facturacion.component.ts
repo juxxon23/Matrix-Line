@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { JsonManagerService } from 'src/app/services/jsonManager.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-facturacion',
@@ -8,9 +10,16 @@ import { FormBuilder } from '@angular/forms';
 })
 export class FacturacionComponent {
 
+  constructor(
+    private fb: FormBuilder, 
+		private rs :JsonManagerService,
+		private router : Router,
+		private route : ActivatedRoute
+  ) {}
+
   facturacion = this.fb.group({
-    document: [''],
-    date: ['']
+    document: ['', Validators.required],
+    date: ['',Validators.required]
   });
 
   estado : boolean = false;
@@ -18,25 +27,28 @@ export class FacturacionComponent {
     this.estado = true;
   }
 
+  url_bill : string = 'http://127.0.0.1:5000/bill';	
+	dataEx : JSON;
+	state : string;	
+
   headers = ["Documento", "Numero De La Linea", "Fecha Emision", "Valor"]
 
-  rows = [
-    {
-      "Documento": "1094972663",
-      "Numero De La Linea": "3142184354",
-      "Fecha Emision": "4/09/2020",
-      "Valor": "20,000"
-    },
-    {
-      "Documento": "1234122234",
-      "Numero De La Linea": "3142234514",
-      "Fecha Emision": "5/10/2020",
-      "Valor": "10,000"
-    }
-  ]
-
-  constructor(private fb: FormBuilder) { }
-
   onSubmit() {
+    this.rs.postData(this.url_bill, this.facturacion.value).subscribe((data : any) => {
+      this.dataEx = data;
+      this.state = this.dataEx['state'];
+      switch (this.state) {
+        case 'welcome':
+          console.log('Bill user')
+          break;
+        case 'document':{
+          console.log('Unregistred user')
+          break;
+        }
+        case 'error': {
+          console.log('error')
+        }
+      }
+    })
   }
 }

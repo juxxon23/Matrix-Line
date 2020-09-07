@@ -9,15 +9,16 @@
       <circle cx="3.5" cy="8" r=".5"/>
       <circle cx="3.5" cy="10.5" r=".5"/>
     </svg>
-    <input type="text" formControlName="document">
+    <input type="text" formControlName="document" required>
   </label><br>
   <label>
     Fecha de factura<br>
-    <input type="date" formControlName="date">
+    <input type="date" formControlName="date" required>
   </label>
   <br>
-  <button (click)="tabla()" class="btn btn-success border border-dark mb-2" >Consultar</button>
+  <button type="submit" [disabled]="facturacion.invalid" (click)="tabla()" class="btn btn-success border border-dark mb-2" >Consultar</button>
 </form>
+
 <table class="container table bg-dark text-white text-center" *ngIf="estado">
 	<tr>
 		<th *ngFor= "let column of headers">
@@ -25,10 +26,10 @@
 		</th>
 	</tr>
 	
-	<tr *ngFor= "let row of rows">
-		<td *ngFor= "let column of headers">
-			{{row[column]}}
-		</td>
+	<tr *ngFor= "let e of data">
+    <td>{{e.employee_documento}}</td>
+    <td>{{e.employee_numero_linea}}</td>
+    <td>{{e.employee_fecha_emision}}</td>
+    <td>{{e.employee_valor}}</td>
 	</tr>
-	
 </table>

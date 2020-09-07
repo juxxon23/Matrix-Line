@@ -12,7 +12,7 @@ import { FacturacionComponent } from './facturacion.component';
   imports: [
     CommonModule,
     FacturacionRoutingModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+  ],
 })
 export class FacturacionModule { }
