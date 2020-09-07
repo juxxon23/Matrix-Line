@@ -4,7 +4,11 @@ from controllers.line import Line
 from controllers.bill import Bill
 from controllers.user import User
 from controllers.check import Check
+<<<<<<< HEAD
 from controllers.consultUser import ConsultUser
+=======
+from controllers.change import Change
+>>>>>>> 0fbd709f202bfa7a8b11b26487b2b7cbd5d56ecb
 
 client = {
 
@@ -41,5 +45,8 @@ check = {
         "check":"/check", "view_func_check":Check.as_view("app_check"),
 }
 
-
+change = {
+        
+        "change":"/change", "view_func_change":Change.as_view("app_change"),
+}
 

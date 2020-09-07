@@ -2,11 +2,12 @@ from flask.views import MethodView
 from flask import json, request, jsonify
 from data.model import Usuario, Linea, Equipo, Factura
 from helpers.data_manager import DataManager
+from helpers.to import To
 from random import uniform
 import datetime
 
-
 data_m = DataManager()
+conv_to = To()
 
 class Line(MethodView):   
 
@@ -17,15 +18,9 @@ class Line(MethodView):
             linea = Linea.query.filter_by(numero_linea=dataEx['numberLine']).first()
             if linea == None:
                 try:
-                    estado = dataEx['legalState']
-                    if estado == 'True':
-                        estado = True
-                    elif estado == 'False':
-                        estado = False
-
                     new_equipo = Equipo(
                             serial_equipo = int(dataEx['namePhone']),
-                            estado_legal = estado,
+                            estado_legal = conv_to.boolean(dataEx['legalState']),
                             marca = dataEx['brand'],
                             descripcion = dataEx['description'])
                     new_line = Linea(
@@ -37,9 +32,7 @@ class Line(MethodView):
                             numero_l = dataEx['numberLine'],
                             fecha_emision = datetime.datetime.now(),
                             valor = round(uniform(10000, 1000000),2))
-                    state = data_m.add(new_equipo)
-                    state = data_m.add(new_line)
-                    state = data_m.add(new_factura)
+                    state = data_m.add(new_equipo, new_line, new_factura)
                     return jsonify({'state':state})
                 except:
                     return jsonify({'state':'error'})
@@ -51,9 +44,7 @@ class Line(MethodView):
 
     
     def put(self, ced, idline):
-        message = "Update line, Cedula: {}, Linea: {}".format(ced, idline)
-        return message, 200
-
+       return 'Updated line status'
 
     def delete(self, idline):
         return 'delete line' + idline, 200  
