@@ -20,18 +20,38 @@ export class ChangeStateComponent {
 	changeState = this.fb.group({
 	    document: ['', Validators.required],
 	  });
-	
+
 	  estado : boolean = false;
 	  tabla(){
 	    this.estado = true;
 	  }
+
+	  button_state(data_status: any){
+	  	  try {
+	  	  	  var chang : string;
+	  	  	  var estado: boolean = data_status["Estado de Linea"];
+	  	  	  if(estado == true){
+	  	  	  	  chang = "Activo";
+	  	  	  } else if(estado == false){
+	  	  	  	  chang = "Inactivo";
+	  	  	  } else {
+	  	  	  	  return "Error";
+	  	  	  }
+	  	  } finally {
+	  	  	  data_status["Estado de Linea"] = chang;
+	  	  	  return data_status;
+	  	  }
+	  }
+
+	  getLine(linea:any):void{
+	  	  console.log(linea["Numero de Linea"]);
+	  }
+
 	  headers = ["Numero de Linea", "Estado de Linea"]
 	  rows = []
-	  table_data = {}
 	  url_signin : string = 'http://127.0.0.1:5000/change'
 	  dataEx : JSON;
 	  state : string;
-
 	  onSubmit() {
 	  	  	this.rows = []
 	  		/* Metodo post */ 
@@ -41,7 +61,7 @@ export class ChangeStateComponent {
 	  		switch(this.state) {
 	  			case 'welcome': {
 	  				for(var i = 0; i < (this.dataEx['data'].length); i++) {
-	  					this.rows.push(this.dataEx['data'][i]);
+	  					this.rows.push(this.button_state(this.dataEx['data'][i]));
 	  				}
 	  				this.tabla()
 	  				console.log('Complete');

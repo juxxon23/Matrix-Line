@@ -18,17 +18,15 @@
 	<button type="submit" [disabled]="changeState.invalid" class="btn btn-success border border-dark mb-2">Consultar Linea</button>
 </form>
 <table class="container table bg-dark text-white text-center" *ngIf="estado">
-	<tr>
+	<thead>
 		<th *ngFor= "let column of headers">
 			{{column}}
 		</th>
-	</tr>
-	<tr *ngFor= "let row of rows">
-		<td *ngFor= "let column of headers">
-			{{row[column]}}
-		</td>
-		<td>
-			<button type="button" class="btn btn-success">Activo</button>
-		</td>
-	</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor= "let row of rows">
+			<td>{{row["Numero de Linea"]}}</td>
+			<td><button class="btn btn-success" (click)="getLine(row)">{{row["Estado de Linea"]}}</button><td>
+		</tr>
+	</tbody>
 </table>
