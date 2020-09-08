@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { JsonManagerService } from '../../services/jsonManager.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-header',
@@ -31,6 +32,10 @@ export class HeaderComponent implements OnInit {
 					console.log('Welcome');
 					break;
 				} case 'token': {
+					Swal.fire({
+						title: 'Tiene que iniciar sesion primero',
+						confirmButtonColor: '#001935'
+					})
 					this.router.navigate(['/login'], {relativeTo: this.route});
 					console.log('Incorrect token, debes iniciar sesion.');
 					break;

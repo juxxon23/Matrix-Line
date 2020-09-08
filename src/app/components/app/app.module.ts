@@ -9,6 +9,7 @@ import { HeaderComponent} from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+
 @NgModule({
   declarations: [
     AppComponent,

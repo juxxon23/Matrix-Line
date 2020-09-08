@@ -24,7 +24,9 @@
     "bootstrap": "^4.5.2",
     "bootstrap-icons": "^1.0.0-alpha5",
     "flx-ui-datatable": "^1.1.5",
+    "ng2-opd-popup": "^1.1.21",
     "rxjs": "~6.6.2",
+    "sweetalert2": "^10.0.1",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
   },
