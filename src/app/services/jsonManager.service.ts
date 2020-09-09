@@ -28,7 +28,7 @@ export class JsonManagerService {
 	}
 
 	/* Delete con parametros de consulta */
-	deleteData(url:string, dataEx:string) {
+	deleteData(url:string, dataEx?:any) {
 		return this.http.delete(url, {
 			params: {
 				id: dataEx

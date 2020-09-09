@@ -22,3 +22,13 @@ class DataManager():
             print(e)
         except:
             return 'error'
+    
+    def delete(self, id_factura):
+        try:
+            db.session.delete(id_factura)
+            db.session.commit()
+            return 'ok'
+        except SQLAlchemyError as e:
+            print(e)
+        except:
+            return 'error'

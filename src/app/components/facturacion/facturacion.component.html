@@ -16,7 +16,7 @@
     <input type="date" formControlName="date" required>
   </label>
   <br>
-  <button type="submit" [disabled]="facturacion.invalid" (click)="tabla()" class="btn btn-success border border-dark mb-2" >Consultar</button>
+  <button type="submit" [disabled]="facturacion.invalid" class="btn btn-success border border-dark mb-2" >Consultar</button>
 </form>
 
 <table class="container table bg-dark text-white text-center" *ngIf="estado">
@@ -26,10 +26,11 @@
 		</th>
 	</tr>
 	
-	<tr *ngFor= "let e of data">
-    <td>{{e.employee_documento}}</td>
-    <td>{{e.employee_numero_linea}}</td>
-    <td>{{e.employee_fecha_emision}}</td>
-    <td>{{e.employee_valor}}</td>
+	<tr *ngFor= "let row of rows; index as i">
+    <td>{{row["Id"]}}</td>
+    <td>{{row["Numero de Linea"]}}</td>
+    <td>{{row["Fecha Emision"]}}</td>
+    <td>{{row["Valor"]}}</td>
+    <td><button class="btn text-white bg-danger" (click)="delete(row, i)">Eliminar</button><td>
 	</tr>
 </table>
