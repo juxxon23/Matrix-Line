@@ -14,19 +14,21 @@ class Bill(MethodView):
         if data != None:
             lineas = Linea.query.filter_by(documento_usuario=dataEx['document']).all()
             for i in lineas:
-                print(i)
-                print(i.numero_linea)
                 factura_r = Factura.query.filter_by(numero_l=i.numero_linea).all()
-                print(factura_r)
                 for i in factura_r:
-                    dic = {
-                            "Id":i.id_factura,
-                            "Numero de Linea":i.numero_l,
-                            "Fecha Emision":i.fecha_emision,
-                            "Valor":i.valor
-                    }
-                    documento.append(dic)
-
+                    fecha_factura = dataEx['date'].split("-")
+                    if int(i.fecha_emision.year) >= int(fecha_factura[0]):
+                        print(int(i.fecha_emision.day), int(fecha_factura[2]))
+                        if int(i.fecha_emision.month) >= int(fecha_factura[1]):
+                            if int(i.fecha_emision.day) >= int(fecha_factura[2]):
+                                fecha = "{}-{}-{}".format(i.fecha_emision.month, i.fecha_emision.day, i.fecha_emision.year)
+                                dic = {
+                                        "Id":i.id_factura,
+                                        "Numero de Linea":i.numero_l,
+                                        "Fecha Emision":fecha,
+                                        "Valor":i.valor
+                                    }
+                                documento.append(dic)
             return jsonify({'state':'welcome', 'data': documento})
         else:
             return jsonify({'state':'document'})
