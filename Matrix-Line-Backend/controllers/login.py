@@ -2,15 +2,22 @@ from flask.views import MethodView
 from flask import jsonify,request
 from data.model import Asesor
 from data.config_key import KEY_TOKEN_AUTH
+from validators.asesor import AsesorLogin
 import bcrypt 
 import jwt
 import datetime
+
+asesor_schema = AsesorLogin()
 
 class Login(MethodView):
 
     def post(self):
         dataEx = request.get_json()
-        pass_Ex = dataEx['pass'].encode('utf-8')
+        errors = asesor_schema.validate(dataEx)
+        if errors:
+            print(errors)
+            return jsonify({'state':'registro'})
+        pass_Ex = dataEx['pass_u'].encode('utf-8')
         data = Asesor.query.filter_by(documento_a=dataEx['document']).first()
         if data != None:
             if bcrypt.checkpw(pass_Ex, data.password_a.encode('utf-8')):
