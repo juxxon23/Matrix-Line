@@ -20,8 +20,8 @@ export class SigninComponent {
 	signin = this.fb.group({
 		name: ['', Validators.required],
 		lastName: ['', Validators.required],
-		id: ['', Validators.required],
-		pass: ['', Validators.required],
+		id_u: ['', Validators.required],
+		pass_u: ['', Validators.required],
 		numberPhone: ['', Validators.required],
 	});
 

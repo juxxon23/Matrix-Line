@@ -19,7 +19,7 @@ export class LoginComponent {
 
 	login_client = this.fb.group({
 		document: ['', Validators.required],
-		pass: ['', Validators.required]
+		pass_u: ['', Validators.required]
 	});
 
 	url_login : string = 'http://127.0.0.1:5000/login';	
