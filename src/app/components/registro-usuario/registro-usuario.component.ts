@@ -21,7 +21,7 @@ export class RegistroUsuarioComponent {
   registroUsuario = this.fb.group({
   	name: ['', Validators.required],
     lastName: ['', Validators.required],
-    id: ['', Validators.required],
+    id_u: ['', Validators.required],
     numberPhone: ['', Validators.required],
     date:['', Validators.required]
 	});
