@@ -14,10 +14,7 @@ class Bill(MethodView):
         if data != None:
             lineas = Linea.query.filter_by(documento_usuario=dataEx['document']).all()
             for i in lineas:
-                print(i)
-                print(i.numero_linea)
                 factura_r = Factura.query.filter_by(numero_l=i.numero_linea).all()
-                print(factura_r)
                 for i in factura_r:
                     dic = {
                             "Id":i.id_factura,
