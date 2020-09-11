@@ -18,7 +18,6 @@ class Bill(MethodView):
                 for i in factura_r:
                     fecha_factura = dataEx['date'].split("-")
                     if int(i.fecha_emision.year) >= int(fecha_factura[0]):
-                        print(int(i.fecha_emision.day), int(fecha_factura[2]))
                         if int(i.fecha_emision.month) >= int(fecha_factura[1]):
                             if int(i.fecha_emision.day) >= int(fecha_factura[2]):
                                 fecha = "{}-{}-{}".format(i.fecha_emision.month, i.fecha_emision.day, i.fecha_emision.year)
