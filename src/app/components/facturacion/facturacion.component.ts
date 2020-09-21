@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { JsonManagerService } from 'src/app/services/jsonManager.service';
-import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-facturacion',
@@ -13,8 +12,6 @@ export class FacturacionComponent {
   constructor(
     private fb: FormBuilder, 
 		private rs :JsonManagerService,
-		private router : Router,
-		private route : ActivatedRoute
   ) {}
 
   facturacion = this.fb.group({
