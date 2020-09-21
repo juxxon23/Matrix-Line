@@ -19,7 +19,7 @@ class Line(MethodView):
         errors = linea_schema.validate(dataEx)
         if errors:
             print(errors)
-            return jsonify({'state':'registro'})
+            return jsonify({'state':'error', 'error':errors})
         data = Usuario.query.filter_by(documento_u=dataEx['document']).first()
         if data != None:
             linea = Linea.query.filter_by(numero_linea=dataEx['numberLine']).first()

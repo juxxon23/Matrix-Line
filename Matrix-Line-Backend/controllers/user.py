@@ -15,7 +15,7 @@ class User(MethodView):
             errors = registroUsuario.validate(usuario_reg)
             if errors:
                 print(errors)
-                return jsonify({'state':'registro'})
+                return jsonify({'state':'error', 'error':errors})
             new_usuario = Usuario(
                     nombre_u = usuario_reg['name'],
                     apellido_u = usuario_reg['lastName'],

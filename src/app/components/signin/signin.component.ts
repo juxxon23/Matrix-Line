@@ -25,26 +25,43 @@ export class SigninComponent {
 		numberPhone: ['', Validators.required],
 	});
 
+	public isError= false;
 	
 	url_signin : string = 'http://127.0.0.1:5000/signin'
 	dataEx : JSON;
 	state : string;
-
+	error : any;
+	mensaje : string = '';
 	onSubmit() {
 			/* Metodo post */
 			this.rs.postData(this.url_signin,this.signin.value).subscribe((data: any) => {
 			this.dataEx = data;
 			this.state = this.dataEx['state'];
+			this.error = this.dataEx['error'];
+			this.isError = false;
 			switch(this.state) {
 				case 'welcome': {
 					this.router.navigate(['/login'], {relativeTo: this.route});
 					console.log('Complete');
 					break;
 				} case 'error': {
-					console.log('Error')
+					this.isError = true;
+					setTimeout(()=>{
+						this.isError=false;
+					},10000)
+					for (const key in this.error) {
+						const value = this.error[key]
+						this.mensaje += '[ campo: '+key+' descripcion: ';
+						for (let i = 0; i < value.length; i++) {
+							const element = value[i];
+							this.mensaje+=element
+						}
+						this.mensaje +=' ]'
+					 }
+					 console.log(this.mensaje)
 					break;
 				} default: {
-					console.log('Operacion no contemplada')
+					console.log('operacion no completada')
 					break;
 				}
 			}

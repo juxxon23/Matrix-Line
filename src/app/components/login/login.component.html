@@ -22,4 +22,7 @@
 	</label><br>
 	<button type="submit" [disabled]="login_client.invalid"
 		class="btn btn-success border border-dark mb-2">Login</button>
+	<div class="alert alert-danger" role="alert" *ngIf="isError">
+		{{mensaje}}
+	</div>
 </form>

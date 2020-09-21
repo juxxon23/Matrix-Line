@@ -18,7 +18,7 @@ class Signin(MethodView):
             errors = asesor_schema.validate(asesor_signin)
             if errors:
                 print(errors)
-                return jsonify({'state':'registro'})
+                return jsonify({'state':'error','error':errors})
             new_asesor = Asesor(
                     nombre_a = asesor_signin['name'],
                     apellido_a = asesor_signin['lastName'],

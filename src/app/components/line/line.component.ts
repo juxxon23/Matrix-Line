@@ -20,6 +20,8 @@ export class LineComponent {
 		description: ['']
 	});
 
+	public isError= false;
+
   constructor(
   	  private fb: FormBuilder,
   	  private rs :JsonManagerService,
@@ -30,19 +32,34 @@ export class LineComponent {
   url_line : string = 'http://127.0.0.1:5000/line';	
   dataEx : JSON;
   state : string;
-
+  error : any;
+  mensaje : string = '';
   onSubmit() {
   	  /* Post */ 
   	  this.rs.postData(this.url_line,this.line.value).subscribe((data:any) => {
   	  	  this.dataEx = data;
-  	  	  this.state = this.dataEx['state'];
+			  this.state = this.dataEx['state'];
+			  this.error = this.dataEx['error'];
   	  	  switch(this.state) {
   	  	  	  case 'welcome': {
   	  	  	  	  this.router.navigate(['/lineOptions'], {relativeTo: this.route});
   	  	  	  	  console.log('Welcome');
   	  	  	  	  break;
   	  	  	  } case 'error': {
-  	  	  	  	  console.log('No se pudo procesar el registro de la linea');
+				this.isError = true;
+				setTimeout(()=>{
+					this.isError=false;
+				},10000)
+				for (const key in this.error) {
+					const value = this.error[key]
+					this.mensaje += '[ campo: '+key+' descripcion: ';
+					for (let i = 0; i < value.length; i++) {
+						const element = value[i];
+						this.mensaje+=element
+					}
+					this.mensaje +=' ]'
+				 }
+				 console.log(this.mensaje)
   	  	  	  	  break;
   	  	  	  } case 'line': {
   	  	  	  	  console.log('La linea ya existe');

@@ -48,4 +48,7 @@
 		<input type="date" formControlName="date" required>
 	</label><br>
 	<button type="submit" [disabled]="registroUsuario.invalid" class="btn btn-success border border-dark mb-2">Registrar Usuario</button>
+	<div class="alert alert-danger" role="alert" *ngIf="isError">
+		{{mensaje}}
+	</div>
 </form>

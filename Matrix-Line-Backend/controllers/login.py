@@ -16,7 +16,7 @@ class Login(MethodView):
         errors = asesor_schema.validate(dataEx)
         if errors:
             print(errors)
-            return jsonify({'state':'registro'})
+            return jsonify({'state':'error','error':errors})
         pass_Ex = dataEx['pass_u'].encode('utf-8')
         data = Asesor.query.filter_by(documento_a=dataEx['document']).first()
         if data != None:

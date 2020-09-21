@@ -22,9 +22,13 @@ export class LoginComponent {
 		pass_u: ['', Validators.required]
 	});
 
+	public isError= false;
+
 	url_login : string = 'http://127.0.0.1:5000/login';	
 	dataEx : JSON;
 	state : string;	
+	error : any;
+	mensaje : string = '';
 
 	onSubmit() {
 		/* Post */
@@ -32,6 +36,8 @@ export class LoginComponent {
 			this.dataEx = data;
 			localStorage.setItem("token",this.dataEx['token'])
 			this.state = this.dataEx['state'];
+			this.error = this.dataEx['error'];
+			this.isError = false;
 			switch(this.state) {
 				case 'welcome': {
 					this.router.navigate(['/'], {relativeTo: this.route});
@@ -44,7 +50,20 @@ export class LoginComponent {
 					console.log('Incorrect id');
 					break;
 				} case 'error': {
-					console.log('Error');
+					this.isError = true;
+					setTimeout(()=>{
+						this.isError=false;
+					},10000)
+					for (const key in this.error) {
+						const value = this.error[key]
+						this.mensaje += '[ campo: '+key+' descripcion: ';
+						for (let i = 0; i < value.length; i++) {
+							const element = value[i];
+							this.mensaje+=element
+						}
+						this.mensaje += ' ]'
+					 }
+					 console.log(this.mensaje)
 				} default: {
 					console.log('Error');
 				}

@@ -18,6 +18,8 @@ export class RegistroUsuarioComponent {
   	  private route : ActivatedRoute
   ){}
 
+  public isError= false;
+
   registroUsuario = this.fb.group({
   	name: ['', Validators.required],
     lastName: ['', Validators.required],
@@ -29,19 +31,35 @@ export class RegistroUsuarioComponent {
 	url_signin : string = 'http://127.0.0.1:5000/user'
 	dataEx : JSON;
 	state : string;
-
+	error : any;
+	mensaje : string = '';
 	onSubmit() {
 			/* Metodo post */ 
 			this.rs.postData(this.url_signin,this.registroUsuario.value).subscribe((data: any) => {
 			this.dataEx = data;
 			this.state = this.dataEx['state'];
+			this.error = this.dataEx['error'];
+			this.isError = false;
 			switch(this.state) {
 				case 'welcome': {
 					this.router.navigate(['/lineOptions'], {relativeTo: this.route});
 					console.log('Complete');
 					break;
 				} case 'error': {
-					console.log('Error')
+					this.isError = true;
+					setTimeout(()=>{
+						this.isError=false;
+					},10000)
+					for (const key in this.error) {
+						const value = this.error[key]
+						this.mensaje += '[ campo: '+key+' descripcion: ';
+						for (let i = 0; i < value.length; i++) {
+							const element = value[i];
+							this.mensaje+=element
+						}
+						this.mensaje +=' ]'
+					 }
+					 console.log(this.mensaje)
 					break;
 				} default: {
 					console.log('Operacion no contemplada')
