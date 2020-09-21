@@ -47,4 +47,4 @@ class Line(MethodView):
                 return jsonify({'state':'line'})
         else:
             return jsonify({'state':'document'})
-        return 'create line', 200
+        return 'create line'
