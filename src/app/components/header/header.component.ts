@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JsonManagerService } from '../../services/jsonManager.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import Swal from 'sweetalert2'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +12,6 @@ export class HeaderComponent implements OnInit {
   	constructor(
   	  private rs :JsonManagerService,
   	  private router : Router,
-  	  private route : ActivatedRoute
   	) { }
 
   	ngOnInit(): void { }
@@ -22,22 +20,18 @@ export class HeaderComponent implements OnInit {
 	state: string;
 	dataEx: JSON;
 
-  	lineOptions(): void {
+	verify_token(ruta:string):void {
 		this.rs.getData(this.url_options, localStorage.getItem('token')).subscribe((data:any) => {
 			this.dataEx = data;
 			this.state = this.dataEx['state'];
 			switch(this.state) {
 				case 'welcome': {
-					this.router.navigate(['/lineOptions'], {relativeTo: this.route});
-					console.log('Welcome');
+					localStorage.removeItem('token');
+					this.router.navigate(['/']);
+					console.log('Sesion cerrada');
 					break;
 				} case 'token': {
-					Swal.fire({
-						title: 'Tiene que iniciar sesion primero',
-						confirmButtonColor: '#001935'
-					})
-					this.router.navigate(['/login'], {relativeTo: this.route});
-					console.log('Incorrect token, debes iniciar sesion.');
+					this.router.navigate([ruta]);
 					break;
 				} default: {
 					console.log('Error');
