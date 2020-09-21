@@ -8,8 +8,8 @@ class ConsultUser (MethodView):
         dataEx = request.get_json()
         data = Usuario.query.filter_by(documento_u=dataEx['document']).first()
         if data != None:
-            return jsonify({'state':'welcome'}) 
+            return jsonify({'state':'welcome'}), 200
         else:
             return jsonify({'state':'document'})
-        return 'complete', 200
+        return 'complete'
             

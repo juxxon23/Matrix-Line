@@ -20,7 +20,7 @@ class Change(MethodView):
                         "Estado de Linea":row.estado_linea
                         }
                 documento.append(dic)
-            return jsonify({'state':'welcome', 'data': documento})
+            return jsonify({'state':'welcome', 'data': documento}), 200
         else:
             return jsonify({'state':'document'})
         return 'Updated line status'
@@ -32,10 +32,10 @@ class Change(MethodView):
         if estado == True:
             numero.estado_linea = False
             state = data_m.update()
-            return jsonify({'state':'inactivo'})
+            return jsonify({'state':'inactivo'}), 200
         elif estado == False:
             numero.estado_linea = True
             state = data_m.update()
-            return jsonify({'state':'activo'})
+            return jsonify({'state':'activo'}), 200
         else:
             return jsonify({'state':'error'})

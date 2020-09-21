@@ -53,7 +53,6 @@ export class ChangeStateComponent {
 	dataS : JSON;
 	stateS : string;
 	changeStatus(linea:any, i:number):void {
-		console.log(i);
 		this.rs.updateData(this.url_change, linea).subscribe((data:any) => {
 			this.dataS = data;
 			this.stateS = this.dataS['state'];
@@ -88,7 +87,6 @@ export class ChangeStateComponent {
 			this.color_button.push(this.color_state(data_t[i]));
 			r.push(this.button_state(data_t[i]));
 		}
-		console.log(this.color_button);
 		this.tabla();
 	}
 
@@ -119,7 +117,6 @@ export class ChangeStateComponent {
 	/* Funcion que permite cambiar el color del boton en base al estado de la linea */
 	color_state(data_status: any) {
 		var estado_s : any = data_status["Estado de Linea"];
-		console.log("color_state", estado_s);
 		if(estado_s == true || estado_s == "Activo") {
 			return "#28a745"
 		} else if(estado_s == false || estado_s == "Inactivo") {

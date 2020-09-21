@@ -24,17 +24,7 @@ class Login(MethodView):
                 encoded_jwt = jwt.encode({'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=300), 'nombre': data.nombre_a}, KEY_TOKEN_AUTH, algorithm='HS256')
                 return jsonify({'state':'welcome', 'token':encoded_jwt}), 200
             else:
-                 return jsonify({'state':'password'}), 400
+                 return jsonify({'state':'password'})
         else:
-            return jsonify({'state':'document'}), 400
-        return 'Complete', 200
-
-
-    def put(self):
-        dataEx = request.get_json()
-        nuevo = int(dataEx['document']) + 2
-        return jsonify({'state':'put', 'data':nuevo})
-        
-    def delete(self):
-        dataEx = request.args.get('id')
-        return jsonify({'state':dataEx})
+            return jsonify({'state':'document'})
+        return 'Complete'

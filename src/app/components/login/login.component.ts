@@ -69,23 +69,5 @@ export class LoginComponent {
 				}
 			}
 		});
-
-		/* Metodo delete
-		   this.rs.deleteData(this.url_login, this.login_client.get('pass').value).subscribe(data => {
-			this.dataEx = data as JSON;
-			console.log(this.dataEx);
-		});*/
-
-		/* Metodo put
-		   this.rs.updateData(this.url_login, this.login_client.value).subscribe(data => {
-	this.dataEx = data as JSON;
-	console.log(this.dataEx);
-		});*/
-
-		/* Metodo get
-	   	  this.rs.getData(this.url).subscribe(data => {
-	   	  	this.dataEx = data as JSON;
-	   	  	console.log(this.dataEx);
-	   	  })*/
 	}
 }

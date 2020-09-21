@@ -14,4 +14,4 @@ class Check(MethodView):
                 return jsonify({'state':'welcome'}), 200
             except:
                 return jsonify({'state':'token'})
-        return jsonify({'state':'complete'}), 200
+        return jsonify({'state':'complete'})

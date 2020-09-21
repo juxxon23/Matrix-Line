@@ -25,6 +25,6 @@ class User(MethodView):
             state = data_m.add(new_usuario)
             return jsonify({'state':state})
         except:
-            return jsonify({'state':state})
-        return jsonify({'state':state})
+            return jsonify({'state':'error'})
+        return 'User complete'
   

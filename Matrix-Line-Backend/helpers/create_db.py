@@ -9,5 +9,3 @@ def create_app():
         db.init_app(app)
         db.create_all()
     return app
-
-
