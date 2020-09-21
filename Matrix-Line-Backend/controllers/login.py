@@ -28,13 +28,3 @@ class Login(MethodView):
         else:
             return jsonify({'state':'document'}), 400
         return 'Complete', 200
-
-
-    def put(self):
-        dataEx = request.get_json()
-        nuevo = int(dataEx['document']) + 2
-        return jsonify({'state':'put', 'data':nuevo})
-        
-    def delete(self):
-        dataEx = request.args.get('id')
-        return jsonify({'state':dataEx})

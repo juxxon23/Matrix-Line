@@ -48,10 +48,3 @@ class Line(MethodView):
         else:
             return jsonify({'state':'document'})
         return 'create line', 200
-
-    
-    def put(self, ced, idline):
-       return 'Updated line status'
-
-    def delete(self, idline):
-        return 'delete line' + idline, 200  
